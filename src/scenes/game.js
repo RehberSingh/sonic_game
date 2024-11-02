@@ -32,6 +32,7 @@ export default function game(){
         k.text("SCORE : 0", {font: "mania", size: 72}),
         k.pos(20,20)
     ])
+    
     const sonic = makeSonic(k.vec2(200, 745))
     sonic.setControls()
     sonic.setEvents()
