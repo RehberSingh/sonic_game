@@ -5,7 +5,22 @@ import { makeSonic } from "../entities/sonic";
 export default function mainMenu(){
     if(!k.getData("best-score")) k.setData("best-score", 0);
 
-    k.onButtonPress("jump", ()=> k.go("game"));
+    k.onButtonPress("jump", () => {
+        // Make the website fullscreen
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            document.documentElement.webkitRequestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+            document.documentElement.msRequestFullscreen();
+        }
+    
+        // Then navigate to the game scene
+        k.go("game");
+    });
+    
 
     const bgPieceWidth = 1920;
     const bgPieces = [
